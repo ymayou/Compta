@@ -1,5 +1,8 @@
+/*
+ * Copyright Yacine Mayou
+ * Software created by Yacine Mayou
+ */
 package model;
-
 
 import java.util.ArrayList;
 import java.util.List;

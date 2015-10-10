@@ -1,15 +1,13 @@
+/*
+ * Copyright Yacine Mayou
+ * Software created by Yacine Mayou
+ */
 package compta;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Calendar;
-import java.util.Properties;
-import javax.swing.JPanel;
-import org.apache.logging.log4j.Level;
+import javax.swing.JFrame;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import view.Infos;
 
 /**
  *
@@ -18,12 +16,12 @@ import org.apache.logging.log4j.Logger;
 public class Main extends javax.swing.JFrame {
 
     private static final Logger LOGGER = LogManager.getLogger(Main.class);
+    public JFrame top = this;
     /**
      * Creates new form Main
      */
     public Main() {
         initComponents();
-        this.lblYear.setText("2015");
     }
 
     /**
@@ -35,7 +33,7 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        mainPan = new javax.swing.JPanel();
         lblYear = new javax.swing.JLabel();
         btBar = new javax.swing.JToolBar();
         btInfos = new javax.swing.JButton();
@@ -48,11 +46,16 @@ public class Main extends javax.swing.JFrame {
         btSearch = new javax.swing.JButton();
         btOptions = new javax.swing.JButton();
         txtSeach = new javax.swing.JTextField();
-        tabs = new javax.swing.JTabbedPane();
+        pan = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Compta_test");
         setName("mainFrame"); // NOI18N
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentResized(java.awt.event.ComponentEvent evt) {
+                formComponentResized(evt);
+            }
+        });
 
         btBar.setFloatable(false);
         btBar.setRollover(true);
@@ -159,53 +162,72 @@ public class Main extends javax.swing.JFrame {
 
         txtSeach.setText("jTextField1");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabs)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout panLayout = new javax.swing.GroupLayout(pan);
+        pan.setLayout(panLayout);
+        panLayout.setHorizontalGroup(
+            panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 582, Short.MAX_VALUE)
+        );
+        panLayout.setVerticalGroup(
+            panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 380, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout mainPanLayout = new javax.swing.GroupLayout(mainPan);
+        mainPan.setLayout(mainPanLayout);
+        mainPanLayout.setHorizontalGroup(
+            mainPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainPanLayout.createSequentialGroup()
+                .addGroup(mainPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainPanLayout.createSequentialGroup()
                         .addComponent(btBar, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(txtSeach, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(mainPanLayout.createSequentialGroup()
                         .addComponent(lblYear)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(pan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        mainPanLayout.setVerticalGroup(
+            mainPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainPanLayout.createSequentialGroup()
                 .addComponent(lblYear)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(mainPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSeach, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tabs, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                .addComponent(pan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        pan.getAccessibleContext().setAccessibleName("");
+        pan.getAccessibleContext().setAccessibleDescription("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainPan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainPan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pack();
+        setBounds(0, 0, 608, 465);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btInfosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInfosActionPerformed
-        this.tabs.removeAll();
-        this.tabs.addTab("test", new JPanel());
-        LOGGER.log(Level.TRACE, "click");
+        pan.removeAll();
+        Infos infosPan = new Infos();
+        infosPan.setSize(pan.getSize());
+        pan.add(infosPan);
+        this.revalidate();
+        this.repaint();
+        CategorieController catControl = new CategorieController();
+        catControl.displayInfos(infosPan);
     }//GEN-LAST:event_btInfosActionPerformed
 
     private void btDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDataActionPerformed
@@ -213,7 +235,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btDataActionPerformed
 
     private void btMonthsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMonthsActionPerformed
-        tabs.removeAll();
+        //tabs.removeAll();
     }//GEN-LAST:event_btMonthsActionPerformed
 
     private void btPatriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPatriActionPerformed
@@ -240,6 +262,16 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btOptionsActionPerformed
 
+    private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
+        // TODO add your handling code here:
+        if(pan.getComponentCount()>0)
+        {
+            pan.getComponent(0).setSize(pan.getSize());
+            pan.revalidate();
+        }
+    }//GEN-LAST:event_formComponentResized
+
+    
     /**
      * @param args the command line arguments
      */
@@ -274,6 +306,10 @@ public class Main extends javax.swing.JFrame {
             }
         });
     }
+    
+    /*private static boolean isMaximized(int state) {
+        return (state & this.MAXIMIZED_BOTH) == Frame.MAXIMIZED_BOTH;
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAmor;
@@ -286,9 +322,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btSearch;
     private javax.swing.JButton btStats;
     private javax.swing.JButton btTaxes;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblYear;
-    private javax.swing.JTabbedPane tabs;
+    private javax.swing.JPanel mainPan;
+    public javax.swing.JPanel pan;
     private javax.swing.JTextField txtSeach;
     // End of variables declaration//GEN-END:variables
 

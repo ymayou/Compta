@@ -1,3 +1,7 @@
+/*
+ * Copyright Yacine Mayou
+ * Software created by Yacine Mayou
+ */
 package dao;
 
 import java.sql.Connection;
@@ -10,7 +14,7 @@ import java.sql.SQLException;
  */
 public class Connect {
     private static final String HOST = "localhost";
-    private static final String NAME = "compta_test";
+    private static final String NAME = "compta";
     private static final String USER = "root";
     private static final String PWD = "";
     private static final String PORT = "3306";

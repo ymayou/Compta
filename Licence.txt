@@ -1,0 +1,8 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}Copyright Yacine Mayou
+${licensePrefix}Software created by Yacine Mayou
+<#if licenseLast??>
+${licenseLast}
+</#if>

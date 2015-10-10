@@ -1,3 +1,5 @@
-2015-07-28 00:22:49,135 TRACE c.Compta [main] reading run properties
-2015-07-28 00:22:49,135 TRACE c.Compta [main] Saving new run properties file
-2015-07-28 00:22:51,441 TRACE c.Main [AWT-EventQueue-0] click
+2015-10-10 21:21:23,633 TRACE c.Compta [main] reading run properties
+2015-10-10 21:21:23,638 TRACE c.Compta [main] Saving new run properties file
+2015-10-10 21:28:09,386 TRACE c.Compta [main] reading run properties
+2015-10-10 21:28:09,389 TRACE c.Compta [main] Saving new run properties file
+2015-10-10 21:28:24,784 TRACE c.CategorieController [AWT-EventQueue-0] Insert new Categorie

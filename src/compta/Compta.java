@@ -1,6 +1,9 @@
+/*
+ * Copyright Yacine Mayou
+ * Software created by Yacine Mayou
+ */
 package compta;
 
-import dao.CategorieDao;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -9,7 +12,6 @@ import java.util.Properties;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import model.Categorie;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -44,9 +46,6 @@ public class Compta {
         } catch (IOException ex) {
             LOGGER.log(Level.ERROR, "Can't store run properties file\n" + ex.getMessage() + "\n" + ex.getLocalizedMessage());
         }
-        
-        CategorieDao catDao  = new CategorieDao();
-        Categorie cat = catDao.getCategorieById(1);
        
         try {
             // Use the system Look&Feel
@@ -56,7 +55,7 @@ public class Compta {
             main.setExtendedState(JFrame.MAXIMIZED_BOTH);
             main.setVisible(true);
         } catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
-            System.out.println(e.toString());
+            LOGGER.log(Level.ERROR, "Compta error : \n" + e.getMessage() + "\n" + e.getLocalizedMessage());
         }
     }
 }
