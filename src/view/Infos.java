@@ -98,6 +98,9 @@ public class Infos extends javax.swing.JPanel {
         InfosModel model = new InfosModel(cats.get(0));
         model.setDataVector(cats.get(1), cats.get(0));
         model.addTableModelListener(model);
+        /** 
+         * TODO : AddColumn to the model, this column will contain a delete button
+         */
         grid.setModel(model);
     }
 

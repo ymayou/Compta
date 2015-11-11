@@ -104,4 +104,16 @@ public class CategorieDao {
             System.out.println(ex.toString());
         }
     }
+    
+    public void delete(Categorie cat)
+    {
+        try{
+            connection = Connect.getConnection();
+            statement = connection.createStatement();
+            String query = "DELETE FROM categorie WHERE id = " + cat.getId();
+            statement.executeUpdate(query);
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+        }
+    }
 }

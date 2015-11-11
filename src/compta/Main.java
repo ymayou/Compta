@@ -5,9 +5,11 @@
 package compta;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import view.Infos;
+import view.Options;
 
 /**
  *
@@ -224,8 +226,8 @@ public class Main extends javax.swing.JFrame {
         Infos infosPan = new Infos();
         infosPan.setSize(pan.getSize());
         pan.add(infosPan);
-        this.revalidate();
-        this.repaint();
+        pan.revalidate();
+        pan.repaint();
         CategorieController catControl = new CategorieController();
         catControl.displayInfos(infosPan);
     }//GEN-LAST:event_btInfosActionPerformed
@@ -259,7 +261,16 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btSearchActionPerformed
 
     private void btOptionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOptionsActionPerformed
-        // TODO add your handling code here:
+        pan.removeAll();
+        Options opt = new Options();
+        opt.setSize(pan.getSize());
+        pan.add(opt);
+        pan.revalidate();
+        pan.repaint();
+        OptionsController optControl = new OptionsController();
+        if (!optControl.displayData(opt))
+            JOptionPane.showMessageDialog(pan.getParent(), "The database access informations are not set.", "Database connection problem", JOptionPane.ERROR_MESSAGE);
+        
     }//GEN-LAST:event_btOptionsActionPerformed
 
     private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
@@ -317,7 +328,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btData;
     private javax.swing.JButton btInfos;
     private javax.swing.JButton btMonths;
-    private javax.swing.JButton btOptions;
+    public javax.swing.JButton btOptions;
     private javax.swing.JButton btPatri;
     private javax.swing.JButton btSearch;
     private javax.swing.JButton btStats;

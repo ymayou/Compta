@@ -49,22 +49,22 @@ public class InfosEdit extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        lblName.setText("Nom");
+        lblName.setText("Name");
 
         lblPrivate.setText("Type");
 
         lblCategorie.setText("Code");
 
-        checkPrivate.setText("Privée");
+        checkPrivate.setText("Private");
 
-        btOk.setText("Valider");
+        btOk.setText("Validate");
         btOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btOkActionPerformed(evt);
             }
         });
 
-        btCancel.setText("Annuler");
+        btCancel.setText("Cancel");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

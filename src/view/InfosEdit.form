@@ -89,7 +89,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="lblName">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nom"/>
+        <Property name="text" type="java.lang.String" value="Name"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtName">
@@ -108,12 +108,12 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="checkPrivate">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Priv&#xe9;e"/>
+        <Property name="text" type="java.lang.String" value="Private"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btOk">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Valider"/>
+        <Property name="text" type="java.lang.String" value="Validate"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btOkActionPerformed"/>
@@ -121,7 +121,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btCancel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Annuler"/>
+        <Property name="text" type="java.lang.String" value="Cancel"/>
       </Properties>
     </Component>
   </SubComponents>

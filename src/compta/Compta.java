@@ -4,12 +4,16 @@
  */
 package compta;
 
+import dao.Connect;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.Properties;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import org.apache.logging.log4j.Level;
@@ -54,6 +58,18 @@ public class Compta {
             main.setYear();
             main.setExtendedState(JFrame.MAXIMIZED_BOTH);
             main.setVisible(true);
+            
+            // Test database connection
+            if (Connect.getConnection() == null)
+            {
+                JOptionPane.showMessageDialog(main, "No database server available.\nYou will be redirected to the Options page.", "Database connection problem", JOptionPane.ERROR_MESSAGE);
+                main.btOptions.doClick();
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(main, "Connection to the database established.", "Database ok", JOptionPane.INFORMATION_MESSAGE);
+            }
+            
         } catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
             LOGGER.log(Level.ERROR, "Compta error : \n" + e.getMessage() + "\n" + e.getLocalizedMessage());
         }

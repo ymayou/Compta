@@ -37,4 +37,11 @@ public class CategorieController {
         LOGGER.log(Level.TRACE, "Insert new Categorie");
     }
     
+    public void deleteData(Categorie cat)
+    {
+        CategorieDao catDao = new CategorieDao();
+        catDao.delete(cat);
+        LOGGER.log(Level.TRACE, "Delete categorie");
+    }
+    
 }
